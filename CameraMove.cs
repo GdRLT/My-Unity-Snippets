@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class CameraMove : MonoBehaviour
 {
     Vector3 hit_position = Vector3.zero;
@@ -19,10 +18,10 @@ public class CameraMove : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-                current_position = Input.mousePosition;
-                LeftMouseDrag();
-}
-}
+            current_position = Input.mousePosition;
+            LeftMouseDrag();
+        }
+    }
 
     void LeftMouseDrag()
     {
