@@ -5,36 +5,24 @@ public class CameraMove : MonoBehaviour
     Vector3 hit_position = Vector3.zero;
     Vector3 current_position = Vector3.zero;
     Vector3 camera_position = Vector3.zero;
-    //float z = 0.0f;
     public float cameraMoveSpeed; //0.5f
     public float maxXY;
     public float minXY;
-    bool startFromNonGUI;
 
     void Update()
     {
-        //Prevent Move Camera While over GUI element
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-            return;
-
         if (Input.GetMouseButtonDown(0))
         {
-            startFromNonGUI = true;
             hit_position = Input.mousePosition;
             camera_position = transform.position;
 
         }
         if (Input.GetMouseButton(0))
         {
-            if (startFromNonGUI)
-            {
                 current_position = Input.mousePosition;
                 LeftMouseDrag();
-            }
-        }
-        if (Input.GetMouseButtonUp(0))
-            startFromNonGUI = false;
-    }
+}
+}
 
     void LeftMouseDrag()
     {
