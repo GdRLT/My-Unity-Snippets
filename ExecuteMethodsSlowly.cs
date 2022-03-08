@@ -44,5 +44,14 @@ public class ExecuteMethodsSlowly : MonoBehaviour
     {
         Debug.Log("C");
     }
-
+    
+    //async works even if you Stop play in editor mode
+    void OnApplicationQuit()
+    {
+    #if UNITY_EDITOR
+        var constructor = SynchronizationContext.Current.GetType().GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { typeof(int) }, null);
+        var newContext = constructor.Invoke(new object[] { Thread.CurrentThread.ManagedThreadId });
+        SynchronizationContext.SetSynchronizationContext(newContext as SynchronizationContext);
+    #endif
+    }
 }
