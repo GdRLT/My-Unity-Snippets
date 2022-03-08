@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public float MouseZoomSpeed = 15.0f;
-    public float TouchZoomSpeed = 0.1f;
-    public float ZoomMinBound = 2.5f;
-    public float ZoomMaxBound = 7.5f;
+    public float MouseZoomSpeed; //15.0f;
+    public float TouchZoomSpeed; //0.1f;
+    public float ZoomMinBound; //2.5f;
+    public float ZoomMaxBound; //7.5f;
     Camera cam;
 
     // Use this for initialization
@@ -60,10 +58,5 @@ public class CameraZoom : MonoBehaviour
         cam.orthographicSize += deltaMagnitudeDiff * speed;
         // set min and max value of Clamp function upon your requirement
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, ZoomMinBound, ZoomMaxBound);
-
-
-        //cam.fieldOfView += deltaMagnitudeDiff * speed;
-        //// set min and max value of Clamp function upon your requirement
-        //cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, ZoomMinBound, ZoomMaxBound);
     }
 }
