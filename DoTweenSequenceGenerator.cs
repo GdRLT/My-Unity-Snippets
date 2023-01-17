@@ -1,4 +1,9 @@
-    public class PlayerObject : MonoBehaviour
+using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
+using System.Linq;
+   
+public class PlayerObject : MonoBehaviour
     {
         public Queue<Sequence> SequenceQueue = new Queue<Sequence>();
 
